@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Мой Minecraft сервер</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #222;
+      color: #eee;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #333;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Добро пожаловать на мой Minecraft сервер!</h1>
+    <p>Выберите версию сервера:</p>
+    <select id="versionSelect">
+      <option value="1.21">Minecraft 1.21</option>
+      <option value="1.20">Minecraft 1.20</option>
+      <option value="1.19">Minecraft 1.19</option>
+      <option value="1.18">Minecraft 1.18</option>
+    </select>
+
+    <p>Выберите моды и плагины (пока просто визуально):</p>
+    <input type="checkbox" id="mods" /> <label for="mods">Использовать моды</label><br />
+    <input type="checkbox" id="plugins" /> <label for="plugins">Использовать плагины</label><br />
+
+    <button onclick="startServer()">Запустить сервер</button>
+
+    <p id="message" style="margin-top:20px;"></p>
+  </div>
+
+  <script>
+    function startServer() {
+      const version = document.getElementById('versionSelect').value;
+      const mods = document.getElementById('mods').checked;
+      const plugins = document.getElementById('plugins').checked;
+
+      let msg = Сервер Minecraft версии ${version} будет запущен;
+      if (mods) msg += ' с модами';
+      if (plugins) msg += (mods ? ' и' : ' с') + ' плагинами';
+      msg += '.';
+
+      document.getElementById('message').textContent = msg;
+    }
+  </script>
+</body>
+</html>
